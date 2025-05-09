@@ -1,5 +1,5 @@
 "use client";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, CircleCheck } from "lucide-react";
 
 import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
@@ -11,6 +11,7 @@ export default function ContactForm() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [showForm, setShowForm] = useState(false);
   const [formVisible, setFormVisible] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -34,6 +35,13 @@ export default function ContactForm() {
     };
   }, [showForm]);
 
+  useEffect(() => {
+    if (!showPopup) return;
+    const handle = () => setShowPopup(false);
+    document.addEventListener("mousedown", handle);
+    return () => document.removeEventListener("mousedown", handle);
+  }, [showPopup]);
+
   const handleShowForm = () => {
     setShowForm(true);
   };
@@ -46,6 +54,14 @@ export default function ContactForm() {
   const handleNext = (e: React.FormEvent) => {
     e.preventDefault();
     setStep(2);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setShowPopup(true);
+    setForm({ name: "", email: "", message: "" });
+    setStep(1);
+    setShowForm(false);
   };
 
   const isStep1ValidResult = isStep1Valid(form.name, form.email);
@@ -75,6 +91,7 @@ export default function ContactForm() {
               ? "translate-y-0 pointer-events-auto"
               : "-translate-y-8 pointer-events-none"
           }`}
+          onSubmit={handleSubmit}
         >
           <Input
             className=""
@@ -88,11 +105,6 @@ export default function ContactForm() {
             value="New message from tranvu.dev"
           />
           <Input type="hidden" name="from_name" value="tranvu.dev" />
-          <Input
-            type="hidden"
-            name="redirect"
-            value="https://tranvu.dev/thanks"
-          />
 
           {step === 1 && (
             <>
@@ -144,6 +156,16 @@ export default function ContactForm() {
             </>
           )}
         </form>
+      )}
+      {showPopup && (
+        <div
+          role="alert"
+          tabIndex={-1}
+          className="w-full gap-1 flex items-center justify-center text-sm font-semibold p-2 pl-8 pr-8"
+        >
+          <CircleCheck className="w-4 h-4 text-green-400" />
+          thanks for reaching out!
+        </div>
       )}
     </div>
   );
