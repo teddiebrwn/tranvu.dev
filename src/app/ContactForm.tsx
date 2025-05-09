@@ -94,12 +94,13 @@ export default function ContactForm() {
           onSubmit={handleSubmit}
         >
           <Input
-            className=""
+            className="input-wrapper"
             type="hidden"
             name="access_key"
             value={process.env.NEXT_PUBLIC_WEB3FORMS_KEY!}
           />
           <Input
+            className="input-wrapper"
             type="hidden"
             name="subject"
             value="New message from tranvu.dev"
@@ -109,22 +110,22 @@ export default function ContactForm() {
           {step === 1 && (
             <>
               <Input
+                className="input-wrapper text-sm"
                 type="text"
                 name="name"
                 value={form.name}
                 onChange={handleChange}
                 placeholder="tranvu"
                 required
-                className="text-sm"
               />
               <Input
+                className="input-wrapper text-sm"
                 type="email"
                 name="email"
                 value={form.email}
                 onChange={handleChange}
                 placeholder="hi@tranvu.dev"
                 required
-                className="text-sm"
               />
               <Button
                 onClick={handleNext}
@@ -144,9 +145,9 @@ export default function ContactForm() {
                 onChange={handleChange}
                 placeholder="Your message"
                 required
-                className="text-sm p-2"
+                className="input-wrapper text-sm"
               />
-              <input type="hidden" name="from_name" value="tranvu.dev" />
+              <Input type="hidden" name="from_name" value="tranvu.dev" />
               <Button
                 type="submit"
                 variant="secondary"

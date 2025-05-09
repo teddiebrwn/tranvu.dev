@@ -123,12 +123,9 @@
   }
 }
 
-@supports (-webkit-touch-callout: none) {
-  input,
-  textarea,
-  select {
-    font-size: 16px !important;
-    transform: scale(0.875) !important;
-    transform-origin: top left !important;
-  }
+.input-wrapper {
+  font-size: 16px; /* Đủ lớn để chặn zoom */
+  transform: scale(0.875); /* Nhìn nhỏ */
+  transform-origin: left center;
+  width: calc(100% / 0.875); /* Bù scale để giữ chiều rộng thật */
 }
