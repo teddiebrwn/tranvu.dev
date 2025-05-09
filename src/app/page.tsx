@@ -20,7 +20,7 @@ export default function Home() {
         <Link
           href="https://x.com/tranvu_dev?s=21"
           target="_blank"
-          className=" w-full justify-center"
+          className=" w-full justify-center cursor-pointer"
         >
           <Button className="w-full flex gap-2 items-center border text-sm font-semibold p-2 pl-8 pr-8 cursor-pointer ">
             <Twitter width={16} height={16} />
@@ -31,7 +31,7 @@ export default function Home() {
         <Link
           href="https://www.facebook.com/teddievux/"
           target="_blank"
-          className=" w-full justify-center"
+          className=" w-full justify-center cursor-pointer"
         >
           <Button className="w-full flex gap-2 items-center border text-sm font-semibold p-2 pl-8 pr-8 cursor-pointer">
             <Facebook width={16} height={16} />
@@ -42,7 +42,7 @@ export default function Home() {
         <Link
           href="https://www.instagram.com/dev__ted/"
           target="_blank"
-          className=" w-full justify-center"
+          className=" w-full justify-center cursor-pointer"
         >
           <Button className="w-full flex gap-2 items-center border text-sm font-semibold p-2 pl-8 pr-8 cursor-pointer">
             <Instagram width={16} height={16} />

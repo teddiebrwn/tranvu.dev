@@ -69,8 +69,8 @@ export default function ContactForm() {
   return (
     <div
       ref={formRef}
-      className={`flex flex-col gap-2 sm:gap-3 md:gap-4 w-full max-w-[90%] sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto px-3 cursor-pointer hover:bg-accent ${
-        showForm ? "py-4" : "py-2"
+      className={`flex flex-col gap-2 sm:gap-3 md:gap-4 w-full max-w-[90%] sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto px-3 cursor-pointer  ${
+        showForm ? "py-4 " : "py-2 hover:bg-accent"
       } border-border border rounded-2xl p-4 bg-background transition-all duration-300 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)]`}
       onClick={handleShowForm}
     >
@@ -128,7 +128,7 @@ export default function ContactForm() {
               />
               <Button
                 onClick={handleNext}
-                className=""
+                className="cursor-pointer"
                 disabled={!isStep1ValidResult}
               >
                 Next
@@ -149,7 +149,7 @@ export default function ContactForm() {
               <input type="hidden" name="from_name" value="tranvu.dev" />
               <button
                 type="submit"
-                className="bg-accent text-accent-foreground px-4 py-2 rounded"
+                className="bg-accent text-accent-foreground px-4 py-2 rounded cursor-pointer"
               >
                 Send Message
               </button>
