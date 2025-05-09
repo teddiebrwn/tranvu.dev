@@ -144,15 +144,16 @@ export default function ContactForm() {
                 onChange={handleChange}
                 placeholder="Your message"
                 required
-                className="text-sm"
+                className="text-sm p-2"
               />
               <input type="hidden" name="from_name" value="tranvu.dev" />
-              <button
+              <Button
                 type="submit"
-                className="bg-accent text-accent-foreground px-4 py-2 rounded cursor-pointer"
+                variant="secondary"
+                className="cursor-pointer"
               >
                 Send Message
-              </button>
+              </Button>
             </>
           )}
         </form>
