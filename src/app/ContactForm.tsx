@@ -69,12 +69,12 @@ export default function ContactForm() {
   return (
     <div
       ref={formRef}
-      className={`flex flex-col gap-2 sm:gap-3 md:gap-4 w-full max-w-[90%] sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto px-3   ${
+      className={`flex flex-col gap-2 sm:gap-3 md:gap-4 w-full sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto px-1 sm:px-3 ${
         showForm ? "py-4 " : "py-2 hover:bg-accent cursor-pointer"
-      } border-border border rounded-2xl p-4 bg-background transition-all duration-800 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)]`}
+      } border border-[var(--border-secondary)] rounded-lg p-4 bg-background transition-all delay-100 duration-500 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)]  `}
       onClick={handleShowForm}
     >
-      <div className="flex items-center text-xl sm:text-2xl md:text-3xl font-bold justify-center gap-1 w-full">
+      <div className="flex items-center text-xl sm:text-2xl md:text-3xl font-bold justify-center gap-1 w-full  ">
         <span className="text-sm">contact here</span>
         <CornerRightDown width={16} height={16} className="" />
       </div>
@@ -82,7 +82,7 @@ export default function ContactForm() {
         <form
           action="https://api.web3forms.com/submit"
           method="POST"
-          className={`flex flex-col gap-4 max-w-lg transition-transform duration-350 [transition-timing-function:cubic-bezier(0.4,0,0.2,1)] ${
+          className={`flex flex-col gap-4 p-4 max-w-lg transition-transform duration-350 [transition-timing-function:cubic-bezier(0.4,0,0.2,1)] ${
             showForm
               ? "translate-y-0 pointer-events-auto"
               : "-translate-y-8 pointer-events-none"

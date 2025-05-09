@@ -7,11 +7,8 @@ import { Twitter, Facebook, Instagram } from "lucide-react";
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center h-screen">
-      <div
-        className="border rounded-2xl p-2 space-y-2"
-        style={{ borderColor: "var(--border-outer)" }}
-      >
-        <div className=" flex flex-col gap-2 sm:gap-3 md:gap-4 w-full max-w-[90%] sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto px-3 py-4 border rounded-2xl p-4">
+      <div className="border rounded-2xl space-y-2 p-2">
+        <div className="flex flex-col gap-4 sm:gap-3 md:gap-4 w-full sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto sm:px-3 border border-[var(--border-secondary)] rounded-lg p-4 ">
           {/* name */}
           <div className="flex items-center justify-center gap-1">
             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold">
