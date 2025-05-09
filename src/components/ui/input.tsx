@@ -1,8 +1,14 @@
-import * as React from "react"
+import * as React from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 function Input({ className, type, ...props }: React.ComponentProps<"input">) {
+  const value =
+    props.value !== undefined && props.value !== null
+      ? props.value
+      : "value" in props
+      ? ""
+      : undefined;
   return (
     <input
       type={type}
@@ -14,8 +20,9 @@ function Input({ className, type, ...props }: React.ComponentProps<"input">) {
         className
       )}
       {...props}
+      value={value}
     />
-  )
+  );
 }
 
-export { Input }
+export { Input };
