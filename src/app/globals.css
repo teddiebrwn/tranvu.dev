@@ -123,15 +123,12 @@
   }
 }
 
-/* @layer base {
-  body {
-    @apply text-foreground;
-    background-color: var(--background);
-    color: var(--foreground);
+@supports (-webkit-touch-callout: none) {
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+    transform: scale(0.875) !important;
+    transform-origin: top left !important;
   }
-
-  body.dark {
-    background-color: var(--background);
-    color: var(--foreground);
-  }
-} */
+}
