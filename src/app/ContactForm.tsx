@@ -71,7 +71,7 @@ export default function ContactForm() {
       ref={formRef}
       className={`flex flex-col gap-2 sm:gap-3 md:gap-4 w-full max-w-[90%] sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto px-3 ${
         showForm ? "py-4" : "py-2"
-      } border rounded-lg p-4 bg-neutral-900 transition-all duration-300 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)]`}
+      } border-border border rounded-2xl p-4 bg-background transition-all duration-300 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)]`}
       onClick={handleShowForm}
     >
       <div className="flex items-center text-xl sm:text-2xl md:text-3xl font-bold justify-center gap-1 w-full">
