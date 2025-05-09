@@ -3,28 +3,8 @@ import ContactForm from "./ContactForm";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Twitter, Facebook, Instagram } from "lucide-react";
-import { useState } from "react";
-import axios from "axios";
 
 export default function Home() {
-  const [fbPreview, setFbPreview] = useState<{
-    title: string;
-    description: string;
-    image: string;
-  } | null>(null);
-  const [fbPreviewVisible, setFbPreviewVisible] = useState(false);
-
-  async function handleFacebookHover() {
-    if (fbPreview || fbPreviewVisible) return;
-    setFbPreviewVisible(true);
-    const { data } = await axios.get("/api/link-preview?url=https://ogp.me/");
-    setFbPreview(data);
-  }
-
-  function handleFacebookLeave() {
-    setFbPreviewVisible(false);
-  }
-
   return (
     <div className="flex flex-col items-center justify-center h-screen gap-2">
       <div className=" flex flex-col gap-2 sm:gap-3 md:gap-4 w-full max-w-[90%] sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto px-3 py-4 border rounded-2xl p-4">
@@ -47,7 +27,7 @@ export default function Home() {
         >
           <Button className="w-full flex gap-2 items-center border text-sm font-semibold p-2 pl-8 pr-8 cursor-pointer ">
             <Twitter width={16} height={16} />
-            <div className="w-full">Twitter</div>
+            <div className="w-full">twitter</div>
           </Button>
         </Link>
 
@@ -55,32 +35,12 @@ export default function Home() {
           href="https://www.facebook.com/teddievux/"
           target="_blank"
           className=" w-full justify-center cursor-pointer"
-          onMouseEnter={handleFacebookHover}
-          onMouseLeave={handleFacebookLeave}
         >
           <Button className="w-full flex gap-2 items-center border text-sm font-semibold p-2 pl-8 pr-8 cursor-pointer">
             <Facebook width={16} height={16} />
-            <div className="w-full">Facebook</div>
+            <div className="w-full">facebook</div>
           </Button>
         </Link>
-
-        {fbPreviewVisible && fbPreview && (
-          <div className="border rounded p-2 mt-1 bg-white shadow max-w-xs">
-            {fbPreview.image && (
-              <img
-                src={fbPreview.image}
-                alt="preview"
-                className="w-full h-24 object-cover rounded mb-1"
-              />
-            )}
-            <div className="font-semibold text-sm truncate">
-              {fbPreview.title}
-            </div>
-            <div className="text-xs text-neutral-500 line-clamp-2">
-              {fbPreview.description}
-            </div>
-          </div>
-        )}
 
         <Link
           href="https://www.instagram.com/dev__ted/"
@@ -89,7 +49,7 @@ export default function Home() {
         >
           <Button className="w-full flex gap-2 items-center border text-sm font-semibold p-2 pl-8 pr-8 cursor-pointer">
             <Instagram width={16} height={16} />
-            <div className="w-full">Instagram</div>
+            <div className="w-full">instagram</div>
           </Button>
         </Link>
       </div>
